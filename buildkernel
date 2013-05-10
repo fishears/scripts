@@ -25,14 +25,15 @@ then
 echo 'Building for Android 4.2'
 fldr="datadrive"
 ver='-4.2-'
+branch='cm-10.1'
   if [ "$2" = "" ]
   then
     cd ~/$fldr/android/system/kernel/samsung/aries
-    git checkout cm-10.1
+    git checkout $branch
     cd ~/$fldr/android/system/device/samsung/aries-common
-    git checkout cm-10.1
+    git checkout $branch
     cd ~/$fldr/android/system/vendor/cm
-    git checkout cm-10.1
+    git checkout $branch
   fi
 fi
 if [ "$trgt" = "cm" ]
@@ -40,6 +41,7 @@ then
 echo 'Building for Android 4.1'
 fldr="developer"
 ver='-4.1-'
+branch='jellybean'
 fi
 finalout=~/$fldr/android/system/out/target/product/galaxysmtd
 androidtop=~/$fldr/android/system
@@ -60,11 +62,11 @@ export LOCALVERSION="-FISHEARS-"$2
   if [ "$2" = "LVM" ]
   then
   cd ~/$fldr/android/system/kernel/samsung/aries
-  git checkout cm-10.1-LVM
+  git checkout $branch-LVM
   cd ~/$fldr/android/system/device/samsung/aries-common
-  git checkout cm-10.1-LVM
+  git checkout $branch-LVM
   cd ~/$fldr/android/system/vendor/cm
-  git checkout cm-10.1-LVM
+  git checkout $branch-LVM
   fi
 else
 export LOCALVERSION="-FISHEARS"
